@@ -3,4 +3,3 @@ streamlit
 scipy
 numpy
 rasterio
-io
