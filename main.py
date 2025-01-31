@@ -4,7 +4,7 @@ import numpy as np
 from scipy.signal import convolve2d
 import os
 import cv2
-
+import io
 #funkcje
 def dBsc(obraz):
     return np.log10(obraz)*10
