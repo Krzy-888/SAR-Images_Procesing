@@ -45,11 +45,11 @@ def gammaMap(obraz,ksize):
 
 plik = st.file_uploader("daj obraz")
 if plik is not None:
-    rasterio.open(io.BytesIO(uploaded_file.getvalue()))
-    SAR = rasterio.open(calosc)
-    sar_img = SAR.read(1)
-    sar_img_n = cv2.convertScaleAbs(sar_img)
-    #sar_img_n = normalizuj_obraz(sar_img)
+    with rasterio.open(io.BytesIO(uploaded_file.getvalue())):
+        SAR = rasterio.open(calosc)
+        sar_img = SAR.read(1)
+        sar_img_n = cv2.convertScaleAbs(sar_img)
+        #sar_img_n = normalizuj_obraz(sar_img)
 
     st.image(sar_img_n)
     option = st.selectbox('Wybierz metodę przetwarzania:',('Uśredniający','Pow2dB','Gamma Map', 'Frost', 'Lee'))
