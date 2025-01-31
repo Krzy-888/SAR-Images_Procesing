@@ -44,9 +44,8 @@ def gammaMap(obraz,ksize):
     return res
 
 plik = st.file_uploader("daj obraz")
-scierzka = r"./"
 if plik is not None:
-    calosc = os.path.join(scierzka,plik.name)
+    rasterio.open(io.BytesIO(uploaded_file.getvalue()))
     SAR = rasterio.open(calosc)
     sar_img = SAR.read(1)
     sar_img_n = cv2.convertScaleAbs(sar_img)
